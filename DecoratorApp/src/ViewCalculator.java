@@ -46,20 +46,20 @@ public class ViewCalculator {
                     ComplexNumber arg = new ComplexNumber(argReal, argImaginary);
                     calculator.subtract(arg);
                     continue;
+                }
                 if (cmd.equals("=")) {
                     ComplexNumber result = calculator.getResult();
                     System.out.println("Результат: " + result);
                     break;
                 }
             }
-
             String cmd = prompt("Еще посчитать (Y/N)?");
             if (!cmd.equalsIgnoreCase("Y")) {
                 break;
             }
         }
     }
-}
+
     
 
     private String prompt(String message) {

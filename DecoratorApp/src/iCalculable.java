@@ -1,7 +1,9 @@
 
 
 public interface iCalculable {
-    iCalculable sum(int arg,int arg2);
-    iCalculable multi(int arg,int arg2);
-    int getResult();
+    iCalculable sum(ComplexNumber arg);
+    iCalculable subtract(ComplexNumber arg);
+    iCalculable multiply(ComplexNumber arg);
+    iCalculable divide(ComplexNumber arg);
+    ComplexNumber getResult();
 }

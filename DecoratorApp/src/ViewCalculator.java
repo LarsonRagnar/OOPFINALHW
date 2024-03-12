@@ -20,13 +20,15 @@ public class ViewCalculator {
             while (true) {
                 String cmd = prompt("Введите команду (*, +, =) : ");
                 if (cmd.equals("*")) {
-                    int arg = promptInt("Введите второй аргумент: ");
-                    calculator.multi(arg);
+                    int arg = promptInt("Введите вещественную часть второго аргумента: ");
+                    int arg2 = promptInt("Введите мнимую часть часть второго аргумента: ");
+                    calculator.multi(arg,arg2);
                     continue;
                 }
                 if (cmd.equals("+")) {
-                    int arg = promptInt("Введите второй аргумент: ");
-                    calculator.sum(arg);
+                    int arg = promptInt("Введите вещественную часть второго аргумента: ");
+                    int arg2 = promptInt("Введите мнимую часть часть второго аргумента: ");
+                    calculator.sum(arg,arg2);
                     continue;
                 }
                 if (cmd.equals("=")) {

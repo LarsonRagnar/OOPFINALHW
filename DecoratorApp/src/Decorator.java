@@ -12,7 +12,7 @@ public class Decorator implements iCalculable {
 
         b.log(String.format("Первое значение калькулятора %d. Начало вызова метода sum с параметром %d", firstArg, arg));
      
-        iCalculable result = a.sum(arg);
+        iCalculable result = a.sum(arg,arg2);
 
         b.log(String.format("Вызова метода sum произошел"));
 
@@ -22,7 +22,7 @@ public class Decorator implements iCalculable {
     public iCalculable multi(int arg,int arg2) {
         int firstArg = a.getResult();
         b.log(String.format("Первое значение калькулятора %d. Начало вызова метода multi с параметром %d", firstArg, arg));
-        iCalculable result = a.multi(arg);
+        iCalculable result = a.multi(arg,arg2);
         b.log(String.format("Вызова метода multi произошел"));
         return result;
     }

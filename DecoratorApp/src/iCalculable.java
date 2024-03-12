@@ -1,4 +1,6 @@
-
+/**
+ * @apiNote Интерфейс математический операций
+ */
 
 public interface iCalculable {
     iCalculable sum(ComplexNumber arg);

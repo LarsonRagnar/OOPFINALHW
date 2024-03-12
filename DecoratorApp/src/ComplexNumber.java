@@ -1,3 +1,7 @@
+/**
+ * @apiNote Класс определяющий комплексные числа и включающий в себя переопредление математический методов для КЧ
+ *  
+ */
 public class ComplexNumber {
     private double real;
     private double imaginary;

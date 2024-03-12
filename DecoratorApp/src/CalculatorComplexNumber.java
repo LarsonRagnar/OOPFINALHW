@@ -1,3 +1,6 @@
+/**
+ * @apiNote Класс математический операций
+ */
 public class CalculatorComplexNumber implements iCalculable {
     private ComplexNumber primaryArg;
 

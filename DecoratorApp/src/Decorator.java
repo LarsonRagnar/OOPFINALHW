@@ -1,7 +1,11 @@
 public class Decorator implements iCalculable {
     private iCalculable calculator;
     private Logger logger;
-
+/**
+ * @apiNote Класс декоратор включающий в себя интефейс iCalculable и класс Logger 
+ * @param calculator "Экзепляр интрефейса iCalculable"
+ * @param logger "Экзепляр класса Logger"
+ */
     public Decorator(iCalculable calculator, Logger logger) {
         this.calculator = calculator;
         this.logger = logger;

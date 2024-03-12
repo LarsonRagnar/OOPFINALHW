@@ -1,5 +1,7 @@
 import java.util.Scanner;
-
+/**
+ * @apiNote Класс принимающий от пользователя значения из строки и вызывающий математический операции так же выводя их на экран
+ */
 public class ViewCalculator {
 
     private iCalculable calculator;

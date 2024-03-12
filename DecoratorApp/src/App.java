@@ -1,10 +1,9 @@
 public class App {
-    public static void main(String[] args) throws Exception {
-      // iCalculable calc = new Calculator(0);
-
-       iCalculable decorator = new Decorator(new Calculator(0,2), new Logger());
-
-       ViewCalculator view = new ViewCalculator(decorator);
-       view.run();
-    }
+  public static void main(String[] args) throws Exception {
+      iCalculable calculator = new CalculatorComplexNumber(new ComplexNumber(0, 0));
+      Logger logger = new Logger();
+      iCalculable decorator = new Decorator(calculator, logger);
+      ViewCalculator view = new ViewCalculator(decorator);
+      view.run();
+  }
 }

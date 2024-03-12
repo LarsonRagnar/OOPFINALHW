@@ -1,38 +1,65 @@
 public class Decorator implements iCalculable {
-    private Calculator a;
-    private Logger b;
-    public Decorator(Calculator a, Logger b) {
-        this.a = a;
-        this.b = b;
+    private iCalculable calculator;
+    private Logger logger;
+
+    public Decorator(iCalculable calculator, Logger logger) {
+        this.calculator = calculator;
+        this.logger = logger;
     }
+
     @Override
-    public iCalculable sum(int arg,int arg2) {
+    public iCalculable sum(ComplexNumber arg) {
+        ComplexNumber firstArg = calculator.getResult();
+        logger.log(String.format("Первое значение калькулятора %s. Начало вызова метода sum с параметром %s", firstArg, arg));
 
-        int firstArg = a.getResult();
+        iCalculable result = calculator.sum(arg);
 
-        b.log(String.format("Первое значение калькулятора %d. Начало вызова метода sum с параметром %d", firstArg, arg));
-     
-        iCalculable result = a.sum(arg,arg2);
+        logger.log("Вызов метода sum произошел");
 
-        b.log(String.format("Вызова метода sum произошел"));
-
-        return result;
-    }
-    @Override
-    public iCalculable multi(int arg,int arg2) {
-        int firstArg = a.getResult();
-        b.log(String.format("Первое значение калькулятора %d. Начало вызова метода multi с параметром %d", firstArg, arg));
-        iCalculable result = a.multi(arg,arg2);
-        b.log(String.format("Вызова метода multi произошел"));
         return result;
     }
 
     @Override
-    public int getResult() {
-        int result = a.getResult();
-        b.log(String.format("Получение результата %d", result));
+    public iCalculable multiply(ComplexNumber arg) {
+        ComplexNumber firstArg = calculator.getResult();
+        logger.log(String.format("Первое значение калькулятора %s. Начало вызова метода multiply с параметром %s", firstArg, arg));
+
+        iCalculable result = calculator.multiply(arg);
+
+        logger.log("Вызов метода multiply произошел");
+
         return result;
     }
 
-    
+    @Override
+    public ComplexNumber getResult() {
+        ComplexNumber result = calculator.getResult();
+        logger.log(String.format("Получение результата %s", result));
+
+        return result;
+    }
+
+    @Override
+    public iCalculable subtract(ComplexNumber arg) {
+        ComplexNumber firstArg = calculator.getResult();
+        logger.log(String.format("Первое значение калькулятора %s. Начало вызова метода subtract с параметром %s", firstArg, arg));
+
+        iCalculable result = calculator.subtract(arg);
+
+        logger.log("Вызов метода subtract произошел");
+
+        return result;
+    }
+
+    @Override
+    public iCalculable divide(ComplexNumber arg) {
+        ComplexNumber firstArg = calculator.getResult();
+        logger.log(String.format("Первое значение калькулятора %s. Начало вызова метода divide с параметром %s", firstArg, arg));
+
+        iCalculable result = calculator.divide(arg);
+
+        logger.log("Вызов метода divide произошел");
+
+        return result;
+    }
 }

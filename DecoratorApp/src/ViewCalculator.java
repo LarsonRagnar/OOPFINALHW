@@ -1,5 +1,3 @@
-
-
 import java.util.Scanner;
 
 public class ViewCalculator {
@@ -12,38 +10,57 @@ public class ViewCalculator {
 
     public void run() {
         while (true) {
-            int primaryArg = promptInt("Введите вещественную часть первого аргумента: ");
+            double primaryReal = promptDouble("Введите вещественную часть первого аргумента: ");
+            double primaryImaginary = promptDouble("Введите мнимую часть первого аргумента: ");
+            ComplexNumber primaryArg = new ComplexNumber(primaryReal, primaryImaginary);
             
-            int secondArg = promptInt("Введите мнимую часть часть первого аргумента: ");
-            calculator.sum(primaryArg,secondArg);
-            //iCalculable calculator = calculableFactory.create(primaryArg);
+            calculator.sum(primaryArg);
+
             while (true) {
                 String cmd = prompt("Введите команду (*, +, =) : ");
                 if (cmd.equals("*")) {
-                    int arg = promptInt("Введите вещественную часть второго аргумента: ");
-                    int arg2 = promptInt("Введите мнимую часть часть второго аргумента: ");
-                    calculator.multi(arg,arg2);
+                    double argReal = promptDouble("Введите вещественную часть второго аргумента: ");
+                    double argImaginary = promptDouble("Введите мнимую часть второго аргумента: ");
+                    ComplexNumber arg = new ComplexNumber(argReal, argImaginary);
+                    calculator.multiply(arg);
                     continue;
                 }
                 if (cmd.equals("+")) {
-                    int arg = promptInt("Введите вещественную часть второго аргумента: ");
-                    int arg2 = promptInt("Введите мнимую часть часть второго аргумента: ");
-                    calculator.sum(arg,arg2);
+                    double argReal = promptDouble("Введите вещественную часть второго аргумента: ");
+                    double argImaginary = promptDouble("Введите мнимую часть второго аргумента: ");
+                    ComplexNumber arg = new ComplexNumber(argReal, argImaginary);
+                    calculator.sum(arg);
                     continue;
                 }
+                if (cmd.equals("/")) {
+                    double argReal = promptDouble("Введите вещественную часть второго аргумента: ");
+                    double argImaginary = promptDouble("Введите мнимую часть второго аргумента: ");
+                    ComplexNumber arg = new ComplexNumber(argReal, argImaginary);
+                    calculator.divide(arg);
+                    continue;
+                    
+                }
+                if (cmd.equals("-")) {
+                    double argReal = promptDouble("Введите вещественную часть второго аргумента: ");
+                    double argImaginary = promptDouble("Введите мнимую часть второго аргумента: ");
+                    ComplexNumber arg = new ComplexNumber(argReal, argImaginary);
+                    calculator.subtract(arg);
+                    continue;
                 if (cmd.equals("=")) {
-                    int result = calculator.getResult();
-                    System.out.printf("Результат %d\n", result);
+                    ComplexNumber result = calculator.getResult();
+                    System.out.println("Результат: " + result);
                     break;
                 }
             }
+
             String cmd = prompt("Еще посчитать (Y/N)?");
-            if (cmd.equals("Y")) {
-                continue;
+            if (!cmd.equalsIgnoreCase("Y")) {
+                break;
             }
-            break;
         }
     }
+}
+    
 
     private String prompt(String message) {
         Scanner in = new Scanner(System.in);
@@ -51,9 +68,11 @@ public class ViewCalculator {
         return in.nextLine();
     }
 
-    private int promptInt(String message) {
+    private double promptDouble(String message) {
         Scanner in = new Scanner(System.in);
         System.out.print(message);
-        return Integer.parseInt(in.nextLine());
+        return Double.parseDouble(in.nextLine());
     }
 }
+
+
